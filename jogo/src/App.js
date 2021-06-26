@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import './app.scss'
 
 function App() {
 
@@ -11,22 +12,32 @@ function App() {
     return (
       <div className="tabu">
         <div className="tabuLinha">
-          <div className="casa" data-pos='00' onClick="">{j[0][0]}</div>
-          <div className="casa" data-pos='01' onClick="">{j[0][1]}</div>
-          <div className="casa" data-pos='02' onClick="">{j[0][2]}</div>
+          <div className="casa" data-pos='00' onClick={ (e) => {jogar(e)} }>{j[0][0]}</div>
+          <div className="casa" data-pos='01' onClick={ (e) => {jogar(e)} }>{j[0][1]}</div>
+          <div className="casa" data-pos='02' onClick={ (e) => {BtnJogar(e)} }>{j[0][2]}</div>
         </div>
         <div className="tabuLinha">
-          <div className="casa" data-pos='10' onClick="">{j[1][0]}</div>
-          <div className="casa" data-pos='11' onClick="">{j[1][1]}</div>
-          <div className="casa" data-pos='12' onClick="">{j[1][2]}</div>
+          <div className="casa" data-pos='10' onClick={ (e) => {jogar(e)} }>{j[1][0]}</div>
+          <div className="casa" data-pos='11' onClick={ (e) => {jogar(e)} }>{j[1][1]}</div>
+          <div className="casa" data-pos='12' onClick={ (e) => {jogar(e)} }>{j[1][2]}</div>
         </div>
         <div className="tabuLinha">
-          <div className="casa" data-pos='20' onClick="">{j[2][0]}</div>
-          <div className="casa" data-pos='21' onClick="">{j[2][1]}</div>
-          <div className="casa" data-pos='22' onClick="">{j[2][2]}</div>
+          <div className="casa" data-pos='20' onClick={ (e) => {jogar(e)} }>{j[2][0]}</div>
+          <div className="casa" data-pos='21' onClick={ (e) => {jogar(e)} }>{j[2][1]}</div>
+          <div className="casa" data-pos='22' onClick={ (e) => {jogar(e)} }>{j[2][2]}</div>
         </div>
       </div>
     )
+  }
+
+  const BtnJogar = () => {
+    if (!jogando) {
+      return (
+        <div>
+          <button onClick={ () => reiniciar() } />
+        </div>
+      )
+    }
   }
 
   const verificaVitoria = () => {
@@ -64,10 +75,8 @@ function App() {
     //diagonais
     pontos = 0
     for (let d = 0; d < 3; d++) {
-      if (jogo[d][d]) {
-        if (jogo[d][d] == simboloAtual) {
-          pontos++
-        }                       
+      if (jogo[d][d] == simboloAtual) {
+        pontos++                  
       }
     }
     if (pontos == 3) {
@@ -93,8 +102,8 @@ function App() {
   }
 
   const retPos = (e) => {
-    const p = e.target.getAttribute('data-pos')
-    const pos = [parseInt(p.subString(0,1)), parseInt(p.subString(1,2))]
+    const p = e.target.getAttribute('data-pos')            
+    const pos = [parseInt(p.substring(0,1)), parseInt(p.substring(1,2))]
     return pos
   }
 
@@ -106,9 +115,39 @@ function App() {
     }
   }
 
+  const jogar = (e) => {
+    if (jogando) {
+      if (verificaEspacoVazio(e)) {
+        jogo[retPos(e)[0]][retPos(e)[1]] = simboloAtual
+        trocaJogador()
+        if (verificaVitoria) {
+          trocaJogador()
+          alert(`Jogador ${simboloAtual} venceu o jogo! Parabéns!`)
+          setJogando(false)
+        }
+      } else {
+        alert('Este espaço já está marcado! Escolha outro.')
+      }
+    }
+  }
+
+  const reiniciar = () => {
+    setJogando(true)
+    setJogo(jogoInicial)
+    setSimboloAtual('X')
+  }  
+
   return (
     <>
-      Olá
+      <div>
+        <p>Vez de {simboloAtual}</p>
+      </div>
+      <div>
+        {tabuleiro(jogo)}
+      </div>
+      <div>
+        {BtnJogar()}
+      </div>
     </>
   );
 }
