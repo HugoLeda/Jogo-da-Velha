@@ -140,6 +140,7 @@ function App() {
     <>
       <div className="content">
         <div>
+          <h1>Jogo da Velha</h1>
           <p>Vez de {simboloAtual}</p>
         </div>
         <div>
