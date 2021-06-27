@@ -14,7 +14,7 @@ function App() {
         <div className="tabuLinha">
           <div className="casa" data-pos='00' onClick={ (e) => {jogar(e)} }>{j[0][0]}</div>
           <div className="casa" data-pos='01' onClick={ (e) => {jogar(e)} }>{j[0][1]}</div>
-          <div className="casa" data-pos='02' onClick={ (e) => {BtnJogar(e)} }>{j[0][2]}</div>
+          <div className="casa" data-pos='02' onClick={ (e) => {jogar(e)} }>{j[0][2]}</div>
         </div>
         <div className="tabuLinha">
           <div className="casa" data-pos='10' onClick={ (e) => {jogar(e)} }>{j[1][0]}</div>
@@ -30,14 +30,12 @@ function App() {
     )
   }
 
-  const BtnJogar = () => {
-    if (!jogando) {
-      return (
-        <div>
-          <button onClick={ () => reiniciar() } />
-        </div>
-      )
-    }
+  const BtnJogar = () => {    
+    return (
+      <div className="btn">
+        <button onClick={ () => reiniciar() }>Reiniciar</button>
+      </div>
+    )
   }
 
   const verificaVitoria = () => {
@@ -62,15 +60,16 @@ function App() {
     //colunas
     for (let c = 0; c < 3; c++) {
       pontos = 0
-      for (let l = 0; l < 0; l++) {
+      for (let l = 0; l < 3; l++) {
         if (jogo[l][c] == simboloAtual) {
           pontos++
         }
       }
       if (pontos == 3) {
         vitoria = true
+        break
       }
-    }
+    } 
     
     //diagonais
     pontos = 0
@@ -79,7 +78,7 @@ function App() {
         pontos++                  
       }
     }
-    if (pontos == 3) {
+    if (pontos >= 3) {
       vitoria = true
     }
     pontos = 0
@@ -90,7 +89,7 @@ function App() {
       }
       l++
     }
-    if (pontos == 3) {
+    if (pontos >= 3) {
       vitoria = true
     }
 
@@ -120,7 +119,7 @@ function App() {
       if (verificaEspacoVazio(e)) {
         jogo[retPos(e)[0]][retPos(e)[1]] = simboloAtual
         trocaJogador()
-        if (verificaVitoria) {
+        if (verificaVitoria()) {
           trocaJogador()
           alert(`Jogador ${simboloAtual} venceu o jogo! Parabéns!`)
           setJogando(false)
@@ -139,14 +138,16 @@ function App() {
 
   return (
     <>
-      <div>
-        <p>Vez de {simboloAtual}</p>
-      </div>
-      <div>
-        {tabuleiro(jogo)}
-      </div>
-      <div>
-        {BtnJogar()}
+      <div className="content">
+        <div>
+          <p>Vez de {simboloAtual}</p>
+        </div>
+        <div>
+          {tabuleiro(jogo)}
+        </div>
+        <div>
+          {BtnJogar()}
+        </div>
       </div>
     </>
   );
