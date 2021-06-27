@@ -114,6 +114,25 @@ function App() {
     }
   }
 
+  const verificaEmpate = () => {
+    let marcados = 0
+    let resultado = false
+
+    for (let l = 0; l < 3; l++) {
+      for (let c = 0; c < 3; c++) {
+        if (jogo[l][c] != '') {
+          marcados++
+        }
+      }
+    }
+
+    if (marcados >= 9) {
+      resultado = true
+    }
+
+    return resultado
+  }
+
   const jogar = (e) => {
     if (jogando) {
       if (verificaEspacoVazio(e)) {
@@ -122,6 +141,9 @@ function App() {
         if (verificaVitoria()) {
           trocaJogador()
           alert(`Jogador ${simboloAtual} venceu o jogo! Parabéns!`)
+          setJogando(false)
+        } else if (verificaEmpate()){
+          alert(`O jogo terminou empatado!`)
           setJogando(false)
         }
       } else {

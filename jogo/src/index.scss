@@ -11,19 +11,19 @@
                 linear-gradient(336deg, rgba(0, 255, 200, 0.6), rgba(0,0,255,0) 70.71%);
   }
   25% {
-    background: linear-gradient(217deg, rgba(165, 229, 215, 1), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgb(0, 180, 141), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgb(0, 255, 115), rgba(0,0,255,0) 70.71%);
+    background: linear-gradient(215deg, rgba(165, 229, 215, 1), rgba(255,0,0,0) 70.71%),
+                linear-gradient(125deg, rgb(0, 180, 141), rgba(0,255,0,0) 70.71%),
+                linear-gradient(334deg, rgb(0, 255, 115), rgba(0,0,255,0) 70.71%);
   }
   50% {
-    background: linear-gradient(217deg, rgba(0, 255, 200, 0.2), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgba(0, 255, 200, 1), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgba(0, 255, 200, 0.6), rgba(0,0,255,0) 70.71%);
+    background: linear-gradient(210deg, rgba(0, 255, 200, 0.2), rgba(255,0,0,0) 70.71%),
+                linear-gradient(120deg, rgba(0, 255, 200, 1), rgba(0,255,0,0) 70.71%),
+                linear-gradient(330deg, rgba(0, 255, 200, 0.6), rgba(0,0,255,0) 70.71%);
   }
   75% {
-    background: linear-gradient(217deg, rgb(93, 228, 15), rgba(255,0,0,0) 70.71%),
-                linear-gradient(127deg, rgb(0, 255, 106), rgba(0,255,0,0) 70.71%),
-                linear-gradient(336deg, rgb(0, 255, 200), rgba(0,0,255,0) 70.71%);
+    background: linear-gradient(205deg, rgb(93, 228, 15), rgba(255,0,0,0) 70.71%),
+                linear-gradient(115deg, rgb(0, 255, 106), rgba(0,255,0,0) 70.71%),
+                linear-gradient(325deg, rgb(0, 255, 200), rgba(0,0,255,0) 70.71%);
   }
   100% {
     background: linear-gradient(217deg, rgb(94, 255, 0), rgba(255,0,0,0) 70.71%),
@@ -33,8 +33,8 @@
 }
 
 body {
-  background: linear-gradient(217deg, rgba(0, 255, 200, 0.2), rgba(255,0,0,0) 70.71%),
-              linear-gradient(127deg, rgba(0, 255, 200, 1), rgba(0,255,0,0) 70.71%),
-              linear-gradient(336deg, rgba(0, 255, 200, 0.6), rgba(0,0,255,0) 70.71%);
+  background: linear-gradient(210deg, rgba(0, 255, 200, 0.2), rgba(255,0,0,0) 70.71%),
+              linear-gradient(150deg, rgba(0, 255, 200, 1), rgba(0,255,0,0) 70.71%),
+              linear-gradient(340deg, rgba(0, 255, 200, 0.6), rgba(0,0,255,0) 70.71%);
   animation: bcg 20s infinite 3s;
 }

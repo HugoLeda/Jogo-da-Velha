@@ -5,6 +5,13 @@
   align-items: center;
   height: 100vh;
 
+  h1 {
+    font-size: 3rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 166, 0);
+    margin-bottom: 1.5rem;
+  }
+
   .tabu {
     display: flex;
     flex-direction: column;
