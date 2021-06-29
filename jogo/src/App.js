@@ -33,7 +33,7 @@ function App() {
   const BtnJogar = () => {    
     return (
       <div className="btn">
-        <button onClick={ () => reiniciar() }>Reiniciar</button>
+        <button onClick={ () => reiniciar() }>Reiniciar partida</button>
       </div>
     )
   }
@@ -163,7 +163,7 @@ function App() {
       <div className="content">
         <div>
           <h1>Jogo da Velha</h1>
-          <p>Vez de {simboloAtual}</p>
+          <p>Vez de: {simboloAtual}</p>
         </div>
         <div>
           {tabuleiro(jogo)}

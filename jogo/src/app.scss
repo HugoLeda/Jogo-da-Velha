@@ -5,11 +5,18 @@
   align-items: center;
   height: 100vh;
 
+  background-color: #FFF;
+
   h1 {
     font-size: 3rem;
     font-family: 'Courier New', Courier, monospace;
     color: rgb(255, 166, 0);
     margin-bottom: 1.5rem;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
   }
 
   .tabu {
@@ -32,5 +39,22 @@
     cursor: pointer;
     font-size: 60px;
     border: 1px solid #000;
+  }
+
+  .btn {
+    border-radius: 10px;
+    background-color: rgb(0, 235, 0);
+    
+    padding: 0.3rem;
+    margin-top: .5rem;
+
+    cursor: pointer;
+
+    button {
+      background-color: transparent;
+      border: none;      
+      outline: 0;
+      font-size: 1rem;
+    }
   }
 }  
