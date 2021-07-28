@@ -1,2 +1,1 @@
-<h1 align="center"> Jogo-da-Velha </h1>
- 
+<h1 align="center"> Jogo da Velha </h1>
